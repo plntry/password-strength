@@ -1,11 +1,9 @@
-import { useEffect, useRef, useState } from "react";
-import ProgressSectionList from "../ProgressSectionList";
+import { useContext, useEffect, useRef } from 'react';
+import { PasswordContext } from '../Password';
 import s from './passwordInputStyles.module.css';
 
 function PasswordInput() {
-    const [password, setPassword] = useState('');
-    console.log(password);
-    
+    const { password, setPassword } = useContext(PasswordContext);
     const passwordInputRef = useRef();
 
     useEffect(() => {
@@ -13,21 +11,18 @@ function PasswordInput() {
     }, []);
 
     return (
-        <div className={s.container}>
-            <div className={s.inputContainer}>
-                <label>
-                    Password:
-                </label>
-                <input
-                    name="password"
-                    placeholder="Password"
-                    type="password"
-                    value={password}
-                    onChange={e => setPassword(e.target.value)}
-                    ref={passwordInputRef}
-                />
-            </div>
-            <ProgressSectionList numberOfSections={3} />
+        <div className={s.inputContainer}>
+            <label>
+                Password:
+            </label>
+            <input
+                name='password'
+                placeholder='Password'
+                type='password'
+                value={password}
+                onChange={e => setPassword(e.target.value)}
+                ref={passwordInputRef}
+            />
         </div>
     )
 }

@@ -1,10 +1,10 @@
 import s from './App.module.css';
-import PasswordInput from './components/PasswordInput';
+import Password from './components/Password';
 
 function App() {
   return (
     <div className={s.App}>
-      <PasswordInput />
+      <Password />
     </div>
   );
 }
