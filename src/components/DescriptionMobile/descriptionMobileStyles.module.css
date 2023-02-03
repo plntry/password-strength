@@ -1,0 +1,35 @@
+.descriptionMobile {
+  animation-name: descriptionMobileAnimation;
+  animation-duration: 1.5s;
+  position: absolute;
+  bottom: 0;
+  -ms-transform: translateY(-10%);
+  transform: translateY(-10%);
+}
+
+.descriptionMobileText {
+  font-family: 'Titan One';
+  text-align: center;
+  font-size: 50px;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+.descriptionMobileText p {
+  font-size: 14px;
+  text-align: left;
+  line-height: 2;
+  padding: 0 36px;
+}
+
+@keyframes descriptionMobileAnimation {
+  0%   { left:-50em; }
+  100% { left:10.4em; }
+}
+
+.halfColored {
+  background: linear-gradient(to right, rgb(200, 54, 54) 50%, black 50%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

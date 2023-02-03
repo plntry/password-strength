@@ -1,18 +1,18 @@
 .progressSection {
-    background-color: grey;
+    background-color: rgba(150, 147, 147, 0.542);
     width: 2rem;
     height: 7px;
     border-radius: 30px;
 }
 
 .red {
-    background-color: red;
+    background-color: rgb(200, 54, 54);
 }
 
 .yellow {
-    background-color: yellow;
+    background-color: rgb(191, 131, 0);
 }
 
 .green {
-    background-color: green;
+    background-color: rgb(19, 152, 96);
 }

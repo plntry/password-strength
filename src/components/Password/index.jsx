@@ -23,4 +23,4 @@ function Password() {
     )
 }
 
-export default Password
+export default Password;

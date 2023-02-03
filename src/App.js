@@ -1,24 +1,38 @@
+import { useEffect, useState } from 'react';
 import s from './App.module.css';
+import DescriptionBlob from './components/BlobComponents/DescriptionBlob';
+import HeaderBlob from './components/BlobComponents/HeaderBlob';
+import DescriptionMobile from './components/DescriptionMobile';
+import HeaderMobile from './components/HeaderMobile';
 import Password from './components/Password';
 import basicBackground from './img/basicBackground.png';
 
-
 function App() {
+  const [windowSize, setWindowSize] = useState(getWindowSize());
+
+  function getWindowSize() {
+    const {innerWidth, innerHeight} = window;
+    return {innerWidth, innerHeight};
+  }
+
+  useEffect(() => {
+    function handleWindowResize() {
+      setWindowSize(getWindowSize());
+    }
+
+    window.addEventListener('resize', handleWindowResize);
+
+    return () => {
+      window.removeEventListener('resize', handleWindowResize);
+    };
+  }, []);
+
+  console.log(windowSize.innerWidth);
   return (
     <div className={s.App} style={{ backgroundImage: `url(${basicBackground})` }}>
-      <div className={s.headerBlob}>
-        <p className={s.headerBlobText}>Test{'\n'}password{'\n'}strength</p>
-      </div>
+      {windowSize.innerWidth <= 1320 ? <HeaderMobile /> : <HeaderBlob />}
       <Password />
-      <div className={s.descriptionBlob}>
-        <div className={s.descriptionBlobText}>
-          Rules
-          <p>Only letters/digits/symbols - the password is easy;{'\n'}
-            Combination of letters-symbols/letters-digits/digits-symbols - the password is medium;{'\n'}
-            Has letters, symbols and numbers - the password is strong;
-          </p>
-        </div>
-      </div>
+      {windowSize.innerWidth <= 1320 ? <DescriptionMobile /> : <DescriptionBlob />}
     </div>
   );
 }

@@ -11,4 +11,4 @@ function ProgressSectionList({ numberOfSections }) {
     )
 }
 
-export default ProgressSectionList
+export default ProgressSectionList;

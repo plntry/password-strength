@@ -1,0 +1,28 @@
+.headerMobile { 
+  animation-name: headerMobileAnimation;
+  animation-duration: 1.5s;
+  position: absolute;
+  top: 0;
+  -ms-transform: translateY(-10%);
+  transform: translateY(-10%);
+}
+  
+.headerMobileText {
+  font-family: 'Titan One';
+  text-align: center;
+  font-size: 50px;
+  
+  white-space: nowrap;
+}
+
+@keyframes headerMobileAnimation {
+  0%   { top:-8em; }
+  100% { top:0; }
+}
+
+@media only screen and (max-width: 700px) {
+  .headerMobileText {
+    white-space: normal;
+  }
+}
+  
